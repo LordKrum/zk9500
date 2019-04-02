@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="452.0" prefWidth="522.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zkteco.biometric.BiometricController">
+   <children>
+      <VBox prefHeight="452.0" prefWidth="522.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <MenuBar prefHeight="25.0" prefWidth="175.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="Options">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#onClickReconnect" text="Reconnect Devive" />
+                        <MenuItem fx:id="reconnect_records" mnemonicParsing="false" onAction="#onClickReconnectDatabase" text="Reconnect Records" />
+                    <MenuItem mnemonicParsing="false" onAction="#onClickClose" text="Close Device" />
+                    <MenuItem mnemonicParsing="false" text="Close Program" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <TabPane prefHeight="466.0" prefWidth="522.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+              <Tab text="Welcome">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="328.0" prefWidth="522.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@logo.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@Fingerprint-PNG-Clipart.png" />
+                                       </image>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <Label text="Crest Medical Finger Print Scanner">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children></AnchorPane>
+                     </content></Tab>
+              <Tab onSelectionChanged="#onClickGet" text="Get Patient">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="328.0" prefWidth="522.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="328.0" prefWidth="522.0">
+                                       <children>
+                                          <Pane id="imagebackground" prefHeight="247.0" prefWidth="251.0">
+                                             <children>
+                                                <ImageView fx:id="view_fingerprint" fitHeight="429.0" fitWidth="251.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@Fingerprint-PNG-Clipart.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets top="10.0" />
+                                             </HBox.margin>
+                                          </Pane>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="91.0" prefWidth="522.0">
+                                       <children>
+                                          <Label fx:id="results_prompt" alignment="CENTER" contentDisplay="CENTER" prefHeight="64.0" prefWidth="282.0" style="-fx-border-width: 1; -fx-border-color: #707070; -fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #f0f0f0;" wrapText="true">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin></Label>
+                                          <Button fx:id="copy_id" mnemonicParsing="false" onAction="#onClickCopyGetPatient" prefHeight="27.0" prefWidth="125.0" text="Copy ID" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children></AnchorPane>
+                     </content></Tab>
+              <Tab onSelectionChanged="#onClickNew" text="New Patient">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="328.0" prefWidth="522.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#onClickNew" prefHeight="25.0" prefWidth="140.0" text="Restart" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="328.0" prefWidth="522.0">
+                                       <children>
+                                          <Pane id="imagebackground" prefHeight="275.0" prefWidth="251.0">
+                                             <children>
+                                                <ImageView fx:id="view_fingerprint1" fitHeight="315.0" fitWidth="251.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@Fingerprint-PNG-Clipart.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets top="10.0" />
+                                             </HBox.margin>
+                                          </Pane>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="107.0" prefWidth="522.0">
+                                       <children>
+                                          <Label fx:id="results_prompt1" alignment="CENTER" contentDisplay="CENTER" prefHeight="68.0" prefWidth="282.0" style="-fx-border-width: 1; -fx-border-color: #707070; -fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #f0f0f0;" wrapText="true">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Button fx:id="copy_id1" mnemonicParsing="false" onAction="#onClickCopyGetNewPatient" prefHeight="27.0" prefWidth="125.0" text="Copy ID" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children></AnchorPane>
+                     </content></Tab>
+              <Tab onSelectionChanged="#onClickSetExisting" text="New Existing Patient">
+                     <content>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="364.0" prefWidth="522.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label text="Enter Case Number">
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <TextField fx:id="case_id" promptText="e.g CNHK0001" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="0.0" prefWidth="522.0">
+                                       <children>
+                                          <Button fx:id="right_index1" mnemonicParsing="false" onAction="#onClickRightIndex" prefHeight="25.0" prefWidth="105.0" text="Right Index">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button fx:id="right_thumb1" mnemonicParsing="false" onAction="#onClickRightThumb" prefHeight="25.0" prefWidth="110.0" text="Right Thumb">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button fx:id="left_index1" mnemonicParsing="false" onAction="#onClickLeftIndex" prefHeight="25.0" prefWidth="108.0" text="Left Index">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button fx:id="left_thumb1" mnemonicParsing="false" onAction="#onClickLeftThumb" prefHeight="25.0" prefWidth="122.0" text="Left Thumb">
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="290.0" prefWidth="520.0">
+                                       <children>
+                                          <Pane id="imagebackground" prefHeight="247.0" prefWidth="251.0">
+                                             <children>
+                                                <ImageView fx:id="view_fingerprint2" fitHeight="429.0" fitWidth="251.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@Fingerprint-PNG-Clipart.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Pane>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="85.0" prefWidth="522.0">
+                                       <children>
+                                          <Label fx:id="results_prompt2" alignment="CENTER" contentDisplay="CENTER" prefHeight="82.0" prefWidth="282.0" style="-fx-border-width: 1; -fx-border-color: #707070; -fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #f0f0f0;" wrapText="true">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Button fx:id="copy_id2" mnemonicParsing="false" onAction="#onClickCopyGetNewPatient" prefHeight="27.0" prefWidth="125.0" text="Copy ID" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children></AnchorPane>
+                     </content></Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
